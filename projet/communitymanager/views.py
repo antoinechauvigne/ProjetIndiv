@@ -9,5 +9,6 @@ def communautes(request):
 
     # Nous sélectionnons toutes les instances de la classe Communaute
     list_communautes = get_list_or_404(Communaute)
+    ma_communaute = Communaute.objects.filter(abonnes__id=2)
 
     return render(request, 'communitymanager/communautes.html', locals())

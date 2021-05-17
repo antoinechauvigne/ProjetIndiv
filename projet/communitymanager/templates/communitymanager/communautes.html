@@ -5,9 +5,11 @@
     <title>Communautes</title>
 </head>
 <body>
+<h1>Voici la liste des Communautés existantes : </h1>
 {% for communaute in list_communautes %}
     <div class="communautes">
             <p>{{ communaute.nom }}</p>
+            <p>{{ ma_communaute}}</p>
     </div>
 {% empty %}
     <p>Aucun article.</p>

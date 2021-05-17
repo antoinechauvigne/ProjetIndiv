@@ -123,5 +123,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-LOGIN_REDIRECT_URL = '/admin/'
+LOGIN_REDIRECT_URL = '/communitymanager/communautes'
 LOGOUT_REDIRECT_URL = '/accounts/login/'
