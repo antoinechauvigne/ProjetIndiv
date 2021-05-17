@@ -26,6 +26,7 @@ class Post(models.Model):
     description = models.CharField(max_length=2000)
     date_creation = models.DateField()
     communaute = models.ForeignKey('Communaute', on_delete=models.CASCADE)
+    priorite = models.ForeignKey('Priorite', on_delete=models.CASCADE)
     evenementiel = models.BooleanField()
     date_evenement = models.DateField()
     auteur = models.ForeignKey(User, on_delete=models.CASCADE)
