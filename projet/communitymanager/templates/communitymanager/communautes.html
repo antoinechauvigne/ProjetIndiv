@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Communautes</title>
+</head>
+<body>
+{% for communaute in list_communautes %}
+    <div class="communautes">
+            <p>{{ communaute.nom }}</p>
+    </div>
+{% empty %}
+    <p>Aucun article.</p>
+{% endfor %}
+</body>
+</html>
