@@ -1,0 +1,8 @@
+# Project exclude paths
+/env/
+.idea/
+db.sqlite3
+*.pyc
+sqlite-dll-win64-x64-3310100
+venv/
+*.log
