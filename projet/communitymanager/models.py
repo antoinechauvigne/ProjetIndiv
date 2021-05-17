@@ -22,6 +22,7 @@ class Priorite(models.Model):
 
 
 class Post(models.Model):
+    titre = models.CharField(max_length=200)
     description = models.CharField(max_length=2000)
     date_creation = models.DateField()
     communaute = models.ForeignKey('Communaute', on_delete=models.CASCADE)
@@ -30,6 +31,6 @@ class Post(models.Model):
     auteur = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.description
+        return self.titre
 
 
