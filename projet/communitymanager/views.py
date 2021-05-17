@@ -19,5 +19,5 @@ def communaute(request, communaute_id):
     """ Afficher les posts d'une communaute """
 
     posts = Post.objects.filter(communaute__id=communaute_id)
-
+    communaute_selectionnee = Communaute.objects.get(id=communaute_id)
     return render(request, 'communitymanager/communaute.html', locals())
