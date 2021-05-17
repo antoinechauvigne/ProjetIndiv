@@ -3,3 +3,6 @@ from .models import Communaute
 
 # Register your models here.
 admin.site.register(Communaute)
+admin.site.register(Priorite)
+admin.site.register(Post)
+
