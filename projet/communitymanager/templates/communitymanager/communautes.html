@@ -9,10 +9,15 @@
 {% for communaute in list_communautes %}
     <div class="communautes">
             <p>{{ communaute.nom }}</p>
-            <p>{{ ma_communaute}}</p>
+        {% if communaute.user_abonne %} Vous etes abonné
+        {% else %} Pas encore abonné {% endif %}
     </div>
 {% empty %}
     <p>Aucun article.</p>
 {% endfor %}
+
+<a href="{% url 'logout' %}">
+    <button>Déconnexion</button>
+</a>
 </body>
 </html>
