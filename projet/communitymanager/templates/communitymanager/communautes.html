@@ -10,7 +10,14 @@
     <div class="communautes">
             <p>{{ communaute.nom }}</p>
         {% if communaute.user_abonne %} Vous etes abonné
-        {% else %} Pas encore abonné {% endif %}
+        <a href="{% url 'logout' communaute request.user communaute.user_abonne %}">
+            <button>Se désabonner</button>
+        </a>
+        {% else %} Pas encore abonné
+         <a href="{% url 'logout' %}">
+            <button>S'abonner</button>
+        </a>
+        {% endif %}
     </div>
 {% empty %}
     <p>Aucun article.</p>
