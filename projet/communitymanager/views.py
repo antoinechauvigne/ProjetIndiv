@@ -31,9 +31,11 @@ def communaute(request, communaute_id):
     communaute_selectionnee = Communaute.objects.get(id=communaute_id)
     return render(request, 'communitymanager/communaute.html', locals())
 
-def modifier_abonnement(request, communaute, user, modification):
+def modifier_abonnement(request, communaute, modification):
+    print (communaute)
+    print (modification)
     if modification :
-        communaute.abonnes.add(user)
+        communaute.abonnes.add(request.user)
     else:
-        communaute.abonnes.remove(user)
+        communaute.abonnes.remove(request.user)
     return render(request, 'communitymanager/communautes.html', locals())

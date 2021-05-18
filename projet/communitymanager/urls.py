@@ -4,6 +4,7 @@ from . import views
 urlpatterns = [
     path('', views.communautes, name='home'),
     path('communautes', views.communautes, name='communautes'),
-    path('communaute/<communaute_id>', views.communaute, name='communaute')
+    path('communaute/<communaute_id>', views.communaute, name='communaute'),
+    path('modifier_abonnement/<communaute><modification>', views.modifier_abonnement, name='modifier_abonnement')
 
 ]
