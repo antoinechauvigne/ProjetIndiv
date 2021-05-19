@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ mon_post.titre }}</title>
+</head>
+<body>
+
+<h1> Détails sur le poste : {{post.titre}}</h1>
+<h2>{{ mon_post.description }}</h2>
+    <div class="commentaires">
+        <h3> Commentaires </h3>
+{% for commentaire in commentaires %}
+        <h4>Par {{ commentaire.auteur }} , le {{commentaire.date_creation}}</h4>
+        <p> {{commentaire.contenu}}</p>
+{% empty %}
+    <p>Aucun commentaire.</p>
+{% endfor %}
+            </div>
+</body>
+</html>

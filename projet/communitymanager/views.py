@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_list_or_404
 from django.contrib.auth.decorators import login_required
-from .models import Communaute, Post
+from .models import Communaute, Post, Commentaire
 
 
 # Create your views here.
@@ -38,9 +38,7 @@ def communaute(request, communaute_id):
 def post(request, post_id):
     """ Afficher un post """
 
-    post = Post.objects.get(post__id=post_id)
+    mon_post = Post.objects.get(id=post_id)
+    commentaires = Commentaire.objects.filter(post__id=post_id)
 
-
-
-    communaute_selectionnee = Communaute.objects.get(id=communaute_id)
-    return render(request, 'communitymanager/communaute.html', locals())
+    return render(request, 'communitymanager/post.html', locals())
