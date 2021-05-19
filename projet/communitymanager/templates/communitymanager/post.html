@@ -11,11 +11,15 @@
     <div class="commentaires">
         <h3> Commentaires </h3>
 {% for commentaire in commentaires %}
-        <h4>Par {{ commentaire.auteur }} , le {{commentaire.date_creation}}</h4>
+        <h4>Par {{ commentaire.auteur }}, le {{commentaire.date_creation}}</h4>
         <p> {{commentaire.contenu}}</p>
 {% empty %}
     <p>Aucun commentaire.</p>
 {% endfor %}
             </div>
+
+<a href="{% url 'communautes' %}">
+    <button>Retour à la page de la Communauté </button>
+</a>
 </body>
 </html>
