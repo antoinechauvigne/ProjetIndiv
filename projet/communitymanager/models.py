@@ -1,3 +1,4 @@
+from django.utils import timezone
 from django.contrib.auth.models import User
 from django.db import models
 
@@ -24,7 +25,7 @@ class Priorite(models.Model):
 class Post(models.Model):
     titre = models.CharField(max_length=200)
     description = models.CharField(max_length=2000)
-    date_creation = models.DateField()
+    date_creation = models.DateTimeField(default=timezone.now)
     communaute = models.ForeignKey('Communaute', on_delete=models.CASCADE)
     priorite = models.ForeignKey('Priorite', on_delete=models.CASCADE)
     evenementiel = models.BooleanField()
@@ -35,13 +36,10 @@ class Post(models.Model):
         return self.titre
 
 class Commentaire(models.Model):
-    date_creation = models.DateField()
+    date_creation = models.DateTimeField(default=timezone.now)
     contenu = models.CharField(max_length=2000)
     auteur = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey('Post', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.contenu
-
-
-
