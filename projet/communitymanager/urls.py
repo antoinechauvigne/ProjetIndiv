@@ -7,5 +7,6 @@ urlpatterns = [
     path('communautes/<int:communaute_id>/<int:modification>', views.communautes, name='modifier_abonnement'),
     path('communaute/<int:communaute_id>', views.communaute, name='communaute'),
     path('post/<int:post_id>', views.post, name='post'),
+    path('nouveau_post', views.nouveau_post, name='nouveau_post'),
 
 ]
