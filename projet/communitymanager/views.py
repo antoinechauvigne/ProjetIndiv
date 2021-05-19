@@ -46,11 +46,7 @@ def post(request, post_id):
     post_id = 1
     sauvegarde = False
     form = CommentaireForm(request.POST or None)
-    print()
-    print()
-    print("COUCOU avant valide")
-    print(form.errors)
-    print (timezone.now())
+
     if form.is_valid():
         new_commentaire = Commentaire()
         new_commentaire.date_creation = timezone.now()
@@ -58,11 +54,6 @@ def post(request, post_id):
         new_commentaire.auteur = request.user
         new_commentaire.post = mon_post
         new_commentaire.save()
-        print()
-        print()
-        print("COUCOU")
-        print(new_commentaire)
         sauvegarde = True
-
 
     return render(request, 'communitymanager/post.html', locals())
