@@ -33,3 +33,14 @@ def communaute(request, communaute_id):
     posts = Post.objects.filter(communaute__id=communaute_id)
     communaute_selectionnee = Communaute.objects.get(id=communaute_id)
     return render(request, 'communitymanager/communaute.html', locals())
+
+@login_required
+def post(request, post_id):
+    """ Afficher un post """
+
+    post = Post.objects.get(post__id=post_id)
+
+
+
+    communaute_selectionnee = Communaute.objects.get(id=communaute_id)
+    return render(request, 'communitymanager/communaute.html', locals())

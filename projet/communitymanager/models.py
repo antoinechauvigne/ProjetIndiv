@@ -34,4 +34,8 @@ class Post(models.Model):
     def __str__(self):
         return self.titre
 
+class Commentaire(modes.Model):
+    date_creation= models.DateField()
+
+
 
