@@ -34,8 +34,14 @@ class Post(models.Model):
     def __str__(self):
         return self.titre
 
-class Commentaire(modes.Model):
-    date_creation= models.DateField()
+class Commentaire(models.Model):
+    date_creation = models.DateField()
+    contenu = models.CharField(max_length=2000)
+    auteur = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey('Post', on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.contenu
 
 
 
