@@ -50,9 +50,10 @@ def post(request, post_id):
     print()
     print("COUCOU avant valide")
     print(form.errors)
+    print (timezone.now())
     if form.is_valid():
         new_commentaire = Commentaire()
-        new_commentaire.date_creation = timezone.now
+        new_commentaire.date_creation = timezone.now()
         new_commentaire.contenu = form.cleaned_data["contenu"]
         new_commentaire.auteur = request.user
         new_commentaire.post = mon_post
