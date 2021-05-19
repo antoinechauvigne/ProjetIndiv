@@ -8,13 +8,15 @@
 <h1>Voici la liste des Communautés existantes : </h1>
 {% for communaute in list_communautes %}
     <div class="communautes">
-            <p>{{ communaute.nom }}</p>
+        <a href="{% url 'communaute' communaute.id %}">
+            <h3>{{ communaute.nom }}</h3> </a>
+
         {% if communaute.user_abonne %} Vous etes abonné
-        <a href="{% url 'modifier_abonnement' communaute.id communaute.user_abonne %}">
+        <a href="{% url 'modifier_abonnement' communaute.id 0 %}">
             <button>Se désabonner</button>
         </a>
         {% else %} Pas encore abonné
-         <a href="{% url 'logout' %}">
+        <a href="{% url 'modifier_abonnement' communaute.id 1 %}">
             <button>S'abonner</button>
         </a>
         {% endif %}
