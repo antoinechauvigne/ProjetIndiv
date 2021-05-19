@@ -43,7 +43,6 @@ def post(request, post_id):
 
     mon_post = Post.objects.get(id=post_id)
     commentaires = Commentaire.objects.filter(post__id=post_id)
-    post_id = 1
     sauvegarde = False
     form = CommentaireForm(request.POST or None)
 
@@ -57,3 +56,11 @@ def post(request, post_id):
         sauvegarde = True
 
     return render(request, 'communitymanager/post.html', locals())
+
+@login_required
+def nouveau_post(request):
+    """ Créer un nouveau post """
+
+    posts = Post.objects.filter(communaute__id=communaute_id)
+    communaute_selectionnee = Communaute.objects.get(id=communaute_id)
+    return render(request, 'communitymanager/communaute.html', locals())
