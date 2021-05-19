@@ -18,6 +18,18 @@
 {% endfor %}
             </div>
 
+{% if sauvegarde %}
+ <p>Ce commentaire a bien été enregistré.</p>
+{% endif %}
+
+<p>
+ <form method="post" action="{% url 'post' post_id %}">
+ {% csrf_token %}
+ {{ form.as_p }}
+ <input type="submit"/>
+ </form>
+
+
 <a href="{% url 'communautes' %}">
     <button>Retour à la page de la Communauté </button>
 </a>

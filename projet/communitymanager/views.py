@@ -1,5 +1,8 @@
 from django.shortcuts import render, get_list_or_404
 from django.contrib.auth.decorators import login_required
+from django.utils import timezone
+
+from .forms import CommentaireForm
 from .models import Communaute, Post, Commentaire
 
 
@@ -40,5 +43,25 @@ def post(request, post_id):
 
     mon_post = Post.objects.get(id=post_id)
     commentaires = Commentaire.objects.filter(post__id=post_id)
+    post_id = 1
+    sauvegarde = False
+    form = CommentaireForm(request.POST or None)
+    print()
+    print()
+    print("COUCOU avant valide")
+    print(form.errors)
+    if form.is_valid():
+        new_commentaire = Commentaire()
+        new_commentaire.date_creation = timezone.now
+        new_commentaire.contenu = form.cleaned_data["contenu"]
+        new_commentaire.auteur = request.user
+        new_commentaire.post = mon_post
+        new_commentaire.save()
+        print()
+        print()
+        print("COUCOU")
+        print(new_commentaire)
+        sauvegarde = True
+
 
     return render(request, 'communitymanager/post.html', locals())
