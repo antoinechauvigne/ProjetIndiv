@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_list_or_404
+from django.shortcuts import render, get_list_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 
@@ -82,7 +82,8 @@ def nouveau_post(request):
             print(new_post)
             post_id=new_post.id
 
-            return render(request, 'communitymanager/post.html', locals())
+            return redirect('post', post_id)
+            #return render(request, 'communitymanager/post.html', locals())
     else:
         form = NouveauPostForm()
 
