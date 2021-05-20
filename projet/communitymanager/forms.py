@@ -15,3 +15,8 @@ class NouveauPostForm(forms.ModelForm):
     class Meta:
         model = Post
         exclude = ('auteur',)
+
+    def __init__(self, *args, **kwargs):
+        super(NouveauPostForm, self).__init__(*args, **kwargs)
+        self.fields['description'].queryset = self.instance.description
+
