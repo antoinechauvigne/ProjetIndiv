@@ -16,6 +16,9 @@
 {% empty %}
     <p>Aucun post pour le moment.</p>
 {% endfor %}
+<a href="{% url 'nouveau_post' %}">
+    <button>Créer un nouveau post</button>
+</a>
 
 <a href="{% url 'communautes' %}">
     <button>Retour à la liste des Communautés</button>
