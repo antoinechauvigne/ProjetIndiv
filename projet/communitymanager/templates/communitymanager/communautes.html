@@ -9,7 +9,7 @@
 {% for communaute in list_communautes %}
     <div class="communautes">
         <a href="{% url 'communaute' communaute.id %}">
-            <h3>{{ communaute.nom }}</h3> </a>
+            <h3>{{ post. }}</h3> </a>
 
         {% if communaute.user_abonne %} Vous etes abonné
         <a href="{% url 'modifier_abonnement' communaute.id 0 %}">
@@ -24,6 +24,10 @@
 {% empty %}
     <p>Aucun article.</p>
 {% endfor %}
+
+<a href="{% url 'posts' %}">
+    <button>Liste de tous les Posts</button>
+</a>
 
 <a href="{% url 'logout' %}">
     <button>Déconnexion</button>

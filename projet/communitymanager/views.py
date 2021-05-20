@@ -47,9 +47,7 @@ def post(request, post_id):
     form = CommentaireForm(request.POST or None)
 
     if form.is_valid():
-        new_commentaire = Commentaire()
-        new_commentaire.date_creation = timezone.now()
-        new_commentaire.contenu = form.cleaned_data["contenu"]
+        new_commentaire = form.save(commit=False)
         new_commentaire.auteur = request.user
         new_commentaire.post = mon_post
         new_commentaire.save()
@@ -89,3 +87,25 @@ def nouveau_post(request):
         form = NouveauPostForm()
 
     return render(request, 'communitymanager/nouveau_post.html', locals())
+
+
+@login_required
+def modif_post(request, post_id):
+    """ Modifier un post """
+
+    form = NouveauPostForm(request.POST or None)
+    if form.is_valid():
+        new_commentaire = form.save(commit=False)
+        new_commentaire.auteur = request.user
+        new_commentaire.post = mon_post
+        new_commentaire.save()
+
+    return render(request, 'communitymanager/post.html', locals())
+
+def posts(request):
+    """ Afficher les communautes et le statut d'abonnement """
+
+    list_posts = get_list_or_404(Post)
+
+    return render(request, 'communitymanager/posts.html', locals())
+

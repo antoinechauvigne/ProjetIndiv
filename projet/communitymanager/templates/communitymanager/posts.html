@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Posts</title>
+</head>
+<body>
+<h1>Voici le fil de tous les Posts existants : </h1>
+{% for post in list_posts %}
+    <div class="posts">
+        <a href="{% url 'post' post.id %}">
+            <h3>{{ post.titre }}</h3> </a>
+            <p> Par la communauté : {{ post.communaute }}</p>
+        {% if post.evenementiel %} Ceci est un événement qui aura lieu le
+      {{post.date_evenement}}
+        {% else %} Ceci n'est pas un événement
+        {% endif %}
+    </div>
+{% empty %}
+    <p>Aucun post.</p>
+{% endfor %}
+
+<a href="{% url 'logout' %}">
+    <button>Déconnexion</button>
+</a>
+
+</body>
+</html>
