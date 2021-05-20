@@ -67,7 +67,9 @@ def nouveau_post(request):
         form = NouveauPostForm(request.POST) # or None)
         if form.is_valid():
             print("je suis in")
-            new_post = Post()
+            new_post = form.save(commit=False)
+            new_post.auteur = request.user
+            """
             new_post.titre = form.cleaned_data["titre"]
             new_post.description = form.cleaned_data["description"]
             new_post.date_creation = timezone.now()
@@ -76,6 +78,7 @@ def nouveau_post(request):
             new_post.evenementiel = form.cleaned_data["evenementiel"]
             new_post.date_evenement = form.cleaned_data["date_evenement"]
             new_post.auteur = request.user
+            """
             new_post.save()
             sauvegarde = True
             print(new_post)

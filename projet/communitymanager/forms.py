@@ -14,4 +14,4 @@ class CommentaireForm(forms.ModelForm):
 class NouveauPostForm(forms.ModelForm):
     class Meta:
         model = Post
-        fields =('communaute', 'titre', 'description', 'priorite', 'evenementiel', 'date_evenement',)
+        exclude = ('auteur',)
