@@ -29,9 +29,16 @@
  <input type="submit"/>
  </form>
 
+<a href="{% url 'modif_post' post_id %}">
+    <button> Modifier le post </button>
+</a>
 
 <a href="{% url 'communautes' %}">
     <button>Retour à la page de la Communauté </button>
+</a>
+
+<a href="{% url 'posts' %}">
+    <button>Retour à liste de tous les Posts </button>
 </a>
 </body>
 </html>

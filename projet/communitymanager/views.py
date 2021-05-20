@@ -95,11 +95,11 @@ def modif_post(request, post_id):
 
     form = NouveauPostForm(request.POST or None)
     if form.is_valid():
-        new_commentaire = form.save(commit=False)
-        new_commentaire.auteur = request.user
-        new_commentaire.post = mon_post
-        new_commentaire.save()
-
+        modif_post = Post.objects.get(id=post_id)
+        print(modif_post)
+        modif_post = form.save()
+        print(modif_post)
+        modif_post.save()
     return render(request, 'communitymanager/post.html', locals())
 
 def posts(request):
