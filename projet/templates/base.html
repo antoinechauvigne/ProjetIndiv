@@ -6,16 +6,18 @@
 
 </head>
 <body>
-<header>Ma vie</header>
+<header>Ma vie à l'ISAE SUPAERO</header>
 <nav>
-<!--{% block nav %}
+{% block nav %}
 <ul>
-<li><a href="/">Accueil</a></li>
-<li><a href="/blog/">Blog</a></li>
-<li><a href="/contact/">Contact</a></li>
+    <li><a href="{% url 'communautes' %}">Communautés</a></li>
+    <li><a href="{% url 'posts' %}">Posts</a></li>
+    <li><a href="{% url 'nouveau_post' %}">Nouveau Post</a></li>
+
+
 </ul>
 {% endblock %}
--->
+
 </nav>
 <section id="content">
 {% block content %}{% endblock %}
