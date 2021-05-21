@@ -9,6 +9,7 @@
 </head>
 <body>
 <h1>Voici la liste des Communautés existantes : </h1>
+<p>Je teste l'apparence des paragraphes dans le template </p>
 {% for communaute in list_communautes %}
     <div class="communautes">
         <a href="{% url 'communaute' communaute.id %}">

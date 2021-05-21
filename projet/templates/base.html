@@ -1,12 +1,19 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<!--<link rel="stylesheet" href="/media/css/style.css" />-->
+<link rel="stylesheet" href="projet/static/css/style.css" />
 <title>{% block title %}Mon ISAE{% endblock %}</title>
 
 </head>
 <body>
 <header>Ma vie à l'ISAE SUPAERO</header>
+<p>Je teste l'apparence des paragraphes dans base.html </p>
+
 <nav>
 {% block nav %}
 <ul>
