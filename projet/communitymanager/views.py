@@ -103,6 +103,8 @@ def modif_post(request, post_id):
         modif_post.save()
     return render(request, 'communitymanager/post.html', locals())
 
+
+@login_required()
 def posts(request):
     """ Afficher les communautes et le statut d'abonnement """
 
@@ -110,3 +112,8 @@ def posts(request):
 
     return render(request, 'communitymanager/posts.html', locals())
 
+
+def model(request):
+    """ Afficher les posts d'une communaute """
+
+    return render(request, 'index.html', locals())
