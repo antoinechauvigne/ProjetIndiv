@@ -3,41 +3,65 @@
 
 {% block content %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Communautes</title>
-</head>
-<body>
-<h1>Voici la liste des Communautés existantes : </h1>
-<p>Je teste l'apparence des paragraphes dans le template </p>
-{% for communaute in list_communautes %}
-    <div class="communautes">
-        <a href="{% url 'communaute' communaute.id %}">
-            <h3>{{ communaute.nom }}</h3> </a>
+        <!-- Page Header-->
+        {% load static %}
+        <header class="masthead" style="background-image: url("../img/avionbis.jpg")">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Communautés</h1>
+                            <span class="subheading">Liste des Communautés disponibles à l'ISAE, pour ne rien louper</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
 
-        {% if communaute.user_abonne %} Vous etes abonné
-        <a href="{% url 'modifier_abonnement' communaute.id 0 %}">
-            <button>Se désabonner</button>
-        </a>
-        {% else %} Pas encore abonné
-        <a href="{% url 'modifier_abonnement' communaute.id 1 %}">
-            <button>S'abonner</button>
-        </a>
-        {% endif %}
-    </div>
-{% empty %}
-    <p>Aucun article.</p>
-{% endfor %}
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <!-- Post preview-->
+                    {% for communaute in list_communautes %}
+                    <div class="communautes">
+                        <a href="{% url 'communaute' communaute.id %}">
+                            <h2 class="post-title">{{ communaute.nom }}</h2>
+                            {% if communaute.user_abonne %}
+                            <h3 class="post-subtitle">Vous êtes abonné</h3>
+                            <a href="{% url 'modifier_abonnement' communaute.id 0 %}">
+                                <button>Se désabonner</button>
+                            </a>
+                            {% else %}
+                            <h3 class="post-subtitle">Vous n'êtes pas abonné</h3>
+                            <a href="{% url 'modifier_abonnement' communaute.id 1 %}">
+                                <button>S'abonner</button>
+                            </a>
+                            {% endif %}
 
-<a href="{% url 'posts' %}">
-    <button>Liste de tous les Posts</button>
-</a>
 
-<a href="{% url 'logout' %}">
-    <button>Déconnexion</button>
-</a>
-</body>
-</html>
+                        </a>
+                        {% load static %}
+                        <img src="{% static 'communitymanager/avion.jpg' %}">
+                        <p class="post-meta">
+                            Posted by
+                            <a href="#!">Start Bootstrap</a>
+                            on September 24, 2021
+                        </p>
+                    </div>
+                     <!-- Divider-->
+                    <hr class="my-4" />
+                    {% empty %}
+                        <div class="communautes">
+                            <h2 class="post-title"> Aucune communauté pour le moment </h2>
+                        </div>
+                    {% endfor %}
 
+
+                    <!-- Pager-->
+                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="{% url 'posts' %}"> Tous les Posts →</a></div>
+                </div>
+            </div>
+        </div>
 
 {% endblock %}
