@@ -2,32 +2,47 @@
 
 {% block content %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>Nouveau Poste</title>
-</head>
-<body>
+<!-- Page Header-->
+        {% load static %}
+        <header class="masthead" style="background-image: url("../img/avion.jpg")">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>Nouveau post</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
 
-<h1> Création d'un nouveau poste </h1>
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <!-- Post preview-->
+                    <div class="nouveau_post">
+                        <h2 class="post-subtitle">{{ post.description }}</h2>
 
-{% if sauvegarde %}
- <p>Ce nouveau post a bien été enregistré.
- {{new_post.id}}</p>
-{% endif %}
+                    <div class="sauvegarde">
+                        {% if sauvegarde %}
+                            <p class="post-meta">Ce nouveau post a bien été enregistré.</p>
+                        {% endif %}
+                    </div>
+                    <div class="form">
+                        <form action="{% url 'nouveau_post' %}" method="post">
+                            {% csrf_token %}
+                            {{ form.as_p }}
+                            <input type="submit"/>
+                        </form>
+                    </div>
 
-<p>
- <form method="post" action="{% url 'nouveau_post' %}">
- {% csrf_token %}
- {{ form.as_p }}
- <input type="submit"/>
- </form>
 
+                    <!-- Pager-->
+                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="{% url 'communautes'%}"> Retour →</a></div>
 
-<a href="{% url 'communautes' %}">
-    <button>Retour à la page de la Communauté </button>
-</a>
-</body>
-</html>
-
+                </div>
+            </div>
+        </div>
 
 {% endblock %}

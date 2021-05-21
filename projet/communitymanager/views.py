@@ -45,6 +45,7 @@ def post(request, post_id):
     commentaires = Commentaire.objects.filter(post__id=post_id)
     sauvegarde = False
     form = CommentaireForm(request.POST or None)
+    communaute_id = mon_post.communaute.id
 
     if form.is_valid():
         new_commentaire = form.save(commit=False)

@@ -2,31 +2,53 @@
 
 {% block content %}
 
-<head>
-    <meta charset="UTF-8">
-    <title> {{communaute_selectionnee.nom}} </title>
-</head>
-<body>
-<h1>Voici les posts de la communauté {{communaute_selectionnee.nom}}</h1>
-{% for post in posts %}
-    <div class="posts">
-       <a href="{% url 'post' post.id %}">
-        <h3>{{ post.titre }}</h3>
-       </a>
-        <p>{{ post.description }}</p>
-    </div>
-{% empty %}
-    <p>Aucun post pour le moment.</p>
-{% endfor %}
-<a href="{% url 'nouveau_post' %}">
-    <button>Créer un nouveau post</button>
-</a>
+        <!-- Page Header-->
+        {% load static %}
+        <header class="masthead" style="background-image: url("../img/avionbis.jpg")">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>{{communaute_selectionnee.nom}}</h1>
+                            <span class="subheading">Liste des postes associés</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
 
-<a href="{% url 'communautes' %}">
-    <button>Retour à la liste des Communautés</button>
-</a>
-</body>
-</html>
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <!-- Post preview-->
+                    {% for post in posts %}
+                    <div class="posts">
+                        <a href="{% url 'post' post.id %}">
+                            <h2 class="post-title">{{ post.titre }}</h2>
+                            <h3 class="post-subtitle">{{ post.description }}</h3>
+                            </a>
+                        </a>
 
+                        <p class="post-meta">
+                            Posted by
+                            {{ post.auteur }}
+                            on {{ post.date_creation}}
+                        </p>
+                    </div>
+                     <!-- Divider-->
+                    <hr class="my-4" />
+                    {% empty %}
+                        <div class="posts">
+                            <h2 class="post-title"> Aucun post pour le moment </h2>
+                        </div>
+                    {% endfor %}
+
+
+                    <!-- Pager-->
+                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="{% url 'nouveau_post' %}"> Nouveau Post →</a></div>
+                </div>
+            </div>
+        </div>
 
 {% endblock %}

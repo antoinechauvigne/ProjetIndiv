@@ -2,48 +2,67 @@
 
 {% block content %}
 
-<head>
-    <meta charset="UTF-8">
-    <title>{{ mon_post.titre }}</title>
-</head>
-<body>
-
-<h1> Détails sur le poste : {{mon_post.titre}}</h1>
-<h2>{{ mon_post.description }}</h2>
-    <div class="commentaires">
-        <h3> Commentaires </h3>
-{% for commentaire in commentaires %}
-        <h4>Par {{ commentaire.auteur }}, le {{commentaire.date_creation}}</h4>
-        <p> {{commentaire.contenu}}</p>
-{% empty %}
-    <p>Aucun commentaire.</p>
-{% endfor %}
+<!-- Page Header-->
+        {% load static %}
+        <header class="masthead" style="background-image: url("../img/avion.jpg")">
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="site-heading">
+                            <h1>{{mon_post.titre}}</h1>
+                            <span class="subheading">{% if mon_post.evenementiel %} Événement qui aura lieu le {{mon_post.date_evenement}}
+                         {% endif %}</span>
+                        </div>
+                    </div>
+                </div>
             </div>
+        </header>
 
-{% if sauvegarde %}
- <p>Ce commentaire a bien été enregistré.</p>
-{% endif %}
+        <!-- Main Content-->
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <!-- Post preview-->
+                    <div class="description">
+                        <h2 class="post-subtitle">{{ mon_post.description }}</h2>
+                        </div>
+                    {% for commentaire in commentaires %}
+                    <div class="commentaires">
+                            <h3 class="post-title">Posted by {{ commentaire.auteur }} on {{commentaire.date_creation}}{{ post.auteur }}</h3>
+                        </a>
+                        <p class="post-meta">
+                            {{ commentaire.contenu }}</a>
+                        </p>
 
-<p>
- <form method="post" action="{% url 'post' post_id %}">
- {% csrf_token %}
- {{ form.as_p }}
- <input type="submit"/>
- </form>
 
-<a href="{% url 'modif_post' post_id %}">
-    <button> Modifier le post </button>
-</a>
+                    </div>
+                     <!-- Divider-->
+                    <hr class="my-4" />
+                    {% empty %}
+                        <div class="posts">
+                            <h3 class="post-title"> Aucun commentaire pour le moment </h3>
+                        </div>
+                    {% endfor %}
 
-<a href="{% url 'communautes' %}">
-    <button>Retour à la page de la Communauté </button>
-</a>
+                    <div class="sauvegarde">
+                        {% if sauvegarde %}
+                            <p class="post-meta">Ce commentaire a bien été enregistré.</p>
+                        {% endif %}
+                        </div>
 
-<a href="{% url 'posts' %}">
-    <button>Retour à liste de tous les Posts </button>
-</a>
-</body>
-</html>
+                     <form method="post" action="{% url 'post' post_id %}">
+                     {% csrf_token %}
+                     {{ form.as_p }}
+                     <input type="submit"/>
+                     </form>
 
+
+                    <!-- Pager-->
+                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="{% url 'modif_post' post_id%}"> Modifier Post →</a></div>
+                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="{% url 'communaute' communaute_id %}"> Retour →</a></div>
+
+                </div>
+            </div>
+        </div>
 
 {% endblock %}
