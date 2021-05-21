@@ -110,3 +110,7 @@ def posts(request):
 
     return render(request, 'communitymanager/posts.html', locals())
 
+def index(request):
+    """ Afficher les communautes et le statut d'abonnement """
+
+    return render(request, 'index.html', locals())
