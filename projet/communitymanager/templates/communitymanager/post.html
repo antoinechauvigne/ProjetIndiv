@@ -51,6 +51,7 @@
                         </div>
 
                      <form method="post" action="{% url 'post' post_id %}">
+                         Nouveau commentaire :
                      {% csrf_token %}
                      {{ form.as_p }}
                      <input type="submit"/>
