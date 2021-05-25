@@ -65,19 +65,8 @@ def nouveau_post(request):
     if request.method == "POST":
         form = NouveauPostForm(request.POST) # or None)
         if form.is_valid():
-            print("je suis in")
             new_post = form.save(commit=False)
             new_post.auteur = request.user
-            """
-            new_post.titre = form.cleaned_data["titre"]
-            new_post.description = form.cleaned_data["description"]
-            new_post.date_creation = timezone.now()
-            new_post.communaute = form.cleaned_data["communaute"]
-            new_post.priorite = form.cleaned_data["priorite"]
-            new_post.evenementiel = form.cleaned_data["evenementiel"]
-            new_post.date_evenement = form.cleaned_data["date_evenement"]
-            new_post.auteur = request.user
-            """
             new_post.save()
             sauvegarde = True
             print(new_post)
@@ -94,15 +83,25 @@ def nouveau_post(request):
 @login_required
 def modif_post(request, post_id):
     """ Modifier un post """
+    post_modifie = Post.objects.get(id=post_id)
+    form = NouveauPostForm(request.POST or None, instance=post_modifie)
 
-    form = NouveauPostForm(request.POST or None)
-    if form.is_valid():
-        modif_post = Post.objects.get(id=post_id)
-        print(modif_post)
-        modif_post = form.save()
-        print(modif_post)
-        modif_post.save()
-    return render(request, 'communitymanager/post.html', locals())
+    if post_modifie.auteur==request.user:
+        print("c'est ok, vous etes l'auteur du post")
+        #print(form.cleaned_data)
+        if form.is_valid():
+            print("c'est ok, le formulaire est valide")
+            form.save()
+
+            #return redirect ('post', post_id)
+        else:
+            print("c'est PAS ok, le formulaire est INvalide")
+    else:
+        print ("vous n'etes PAS l'auteur du post")
+
+
+
+    return render(request, 'communitymanager/modifier_post.html', locals())
 
 def posts(request):
     """ Afficher les communautes et le statut d'abonnement """

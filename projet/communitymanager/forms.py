@@ -16,7 +16,17 @@ class NouveauPostForm(forms.ModelForm):
         model = Post
         exclude = ('auteur',)
 
-    def __init__(self, *args, **kwargs):
-        super(NouveauPostForm, self).__init__(*args, **kwargs)
-        self.fields['description'].queryset = self.instance.description
+    def clean(self):
+        """
+        Un événement doit contenir une date
+        """
+        cleaned_data = super(NouveauPostForm, self).clean()
+        evenementiel = cleaned_data['evenementiel']
+        date_evenement = cleaned_data['date_evenement']
+
+        if evenementiel:
+            if date_evenement == "<null>":
+                print('problem')
+                raise forms.ValidationError('Précisez la date de votre événement')
+        return cleaned_data
 
