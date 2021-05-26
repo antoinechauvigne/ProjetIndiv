@@ -12,8 +12,8 @@
                 <div class="row gx-4 gx-lg-5 justify-content-center">
                     <div class="col-md-10 col-lg-8 col-xl-7">
                         <div class="site-heading">
-                            <h1>Communautés</h1>
-                            <span class="subheading">Liste des Communautés disponibles à l'ISAE, pour ne rien louper</span>
+                            <h1>Connexion</h1>
+                            <span class="subheading">Veuillez vous connecter pour accéder à vos Communautés</span>
                         </div>
                     </div>
                 </div>
@@ -24,34 +24,41 @@
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
-                    <!-- Post preview-->
-                    {% for communaute in list_communautes %}
-                    <div class="communautes">
-                        <a href="{% url 'communaute' communaute.id %}">
-                            <h2 class="post-title">{{ communaute.nom }}</h2>
-                            {% if communaute.user_abonne %}
-                            <h3 class="post-subtitle">Vous êtes abonné</h3>
-                            <a href="{% url 'modifier_abonnement' communaute.id 0 %}">
-                                <button>Se désabonner</button>
-                            </a>
-                            {% else %}
-                            <h3 class="post-subtitle">Vous n'êtes pas abonné</h3>
-                            <a href="{% url 'modifier_abonnement' communaute.id 1 %}">
-                                <button>S'abonner</button>
-                            </a>
+                     <!-- Page content-->
+                        <div class="form">
+                            {% if form.errors %}
+                            <p>Your username and password didn't match. Please try again.</p>
                             {% endif %}
-                        </a>
 
-                    </div>
-                     <!-- Divider-->
-                    <hr class="my-4" />
-                    {% empty %}
-                        <div class="communautes">
-                            <h2 class="post-title"> Aucune communauté pour le moment </h2>
+                            {% if next %}
+                                {% if user.is_authenticated %}
+                                <p>Your account doesn't have access to this page. To proceed,
+                                please login with an account that has access.</p>
+                                {% else %}
+                                <p>Please login to see this page.</p>
+                                {% endif %}
+                            {% endif %}
+
+                            <form method="post" action="{% url 'login' %}">
+                            {% csrf_token %}
+                            <table>
+                            <tr>
+                                <td>{{ form.username.label_tag }}</td>
+                                <td>{{ form.username }}</td>
+                            </tr>
+                            <tr>
+                                <td>{{ form.password.label_tag }}</td>
+                                <td>{{ form.password }}</td>
+                            </tr>
+                            </table>
+
+                            <input type="submit" value="login">
+                            <input type="hidden" name="next" value="{{ next }}">
+                            </form>
+
+                            {# Assumes you setup the password_reset view in your URLconf #}
+                            <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
                         </div>
-                    {% endfor %}
-
-
                     <!-- Pager-->
                     <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="{% url 'posts' %}"> Tous les Posts →</a></div>
                 </div>
@@ -65,37 +72,6 @@
 
 
 
-{% if form.errors %}
-<p>Your username and password didn't match. Please try again.</p>
-{% endif %}
 
-{% if next %}
-    {% if user.is_authenticated %}
-    <p>Your account doesn't have access to this page. To proceed,
-    please login with an account that has access.</p>
-    {% else %}
-    <p>Please login to see this page.</p>
-    {% endif %}
-{% endif %}
-
-<form method="post" action="{% url 'login' %}">
-{% csrf_token %}
-<table>
-<tr>
-    <td>{{ form.username.label_tag }}</td>
-    <td>{{ form.username }}</td>
-</tr>
-<tr>
-    <td>{{ form.password.label_tag }}</td>
-    <td>{{ form.password }}</td>
-</tr>
-</table>
-
-<input type="submit" value="login">
-<input type="hidden" name="next" value="{{ next }}">
-</form>
-
-{# Assumes you setup the password_reset view in your URLconf #}
-<p><a href="{% url 'password_reset' %}">Lost password?</a></p>
 
 {% endblock %}
