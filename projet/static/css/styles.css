@@ -79,6 +79,8 @@ h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
   font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-weight: 800;
   line-height: 1.2;
+  font-style: italic;
+
 }
 
 h1, .h1 {
@@ -92,10 +94,13 @@ h1, .h1 {
 
 h2, .h2 {
   font-size: calc(1.325rem + 0.9vw);
+  font-style: italic;
 }
 @media (min-width: 1200px) {
   h2, .h2 {
     font-size: 2rem;
+    font-style: italic;
+
   }
 }
 
@@ -10779,6 +10784,7 @@ header.masthead .site-heading .h1 {
 .post-preview > a > .post-subtitle {
   font-weight: 300;
   margin-bottom: 0.625rem;
+  color: #6610f2;
 }
 .post-preview > .post-meta {
   font-size: 1.125rem;
