@@ -1,29 +1,32 @@
 {% extends "base.html" %}
 
-
+<!-- Page de modification d'un post-->
 {% block header %}
 <!-- Page Header-->
-                            <h1>Modifier post</h1>
+<h1>Modifier post</h1>
 {% endblock %}
+
+
 {% block content %}
-                    <!-- Post preview-->
-                    <div class="modifier_post">
-                        <h1 class="post-title">Modification</h1>
-                        <h2 class="post-subtitle">{{ post_modifie.description }}</h2>
+<!-- Post preview-->
+<div class="modifier_post">
+    <h1 class="post-title">Modification</h1>
+    <h2 class="post-subtitle">{{ post_modifie.description }}</h2>
 
-                    <div class="sauvegarde">
-                        {% if sauvegarde %}
-                            <p class="post-meta">Cette modification a bien été enregistrée.</p>
-                        {% endif %}
-                    </div>
-                    <div class="form">
-                        <form action="{% url 'modif_post' post_modifie.id%}" method="post">
-                            {% csrf_token %}
-                            {{ form.as_p }}
-                            <input type="submit"/>
-                        </form>
-                    </div>
-                        <!-- Pager-->
-                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="{% url 'communautes'%}"> Retour →</a></div>
-
+    <div class="sauvegarde">
+        {% if sauvegarde %}
+        <p class="post-meta">Cette modification a bien été enregistrée.</p>
+        {% endif %}
+    </div>
+    <div class="form">
+        <form action="{% url 'modif_post' post_modifie.id%}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="submit"/>
+        </form>
+    </div>
+    <!-- Pager-->
+    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase"
+                                                    href="{% url 'communautes'%}"> Retour →</a></div>
+</div>
 {% endblock %}
