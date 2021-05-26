@@ -75,7 +75,7 @@ hr:not([size]) {
   height: 1px;
 }
 
-h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1 {
+h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1, date_evt {
   margin-top: 0;
   margin-bottom: 0.5rem;
   font-family: "Open Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -137,6 +137,13 @@ p_ita {
   margin-bottom: 1rem;
   font-style: italic;
 }
+
+p_ita_bold {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-style: italic;
+  font-weight: bold;
+}
 comment {
   margin-top: 0;
   margin-bottom: 1rem;
@@ -153,7 +160,17 @@ comment_auteur_date {
   column-count: 2;
 }
 
+error {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-weight: bolder;
+  color: #a52834;
+}
 
+date_evt {
+  font-size: calc(1.275rem + 0.3vw);
+  color: #0dcaf0;
+}
 
 abbr[title],
 abbr[data-bs-original-title] {
