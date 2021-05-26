@@ -83,30 +83,33 @@ def nouveau_post(request):
 @login_required
 def modif_post(request, post_id):
     """ Modifier un post """
+    sauvegarde = False
     post_modifie = Post.objects.get(id=post_id)
-    form = NouveauPostForm(request.POST or None, instance=post_modifie)
+    if request.method == "POST":
+        form = NouveauPostForm(request.POST or None, instance=post_modifie)
 
-    if post_modifie.auteur==request.user:
-        print("c'est ok, vous etes l'auteur du post")
-        #print(form.cleaned_data)
-        if form.is_valid():
-            print("c'est ok, le formulaire est valide")
-            form.save()
+        if post_modifie.auteur==request.user:
+            print("c'est ok, vous etes l'auteur du post")
+            if form.is_valid():
+                print("c'est ok, le formulaire est valide")
+                sauvegarde = True
+                form.save()
 
-            #return redirect ('post', post_id)
+                #return redirect ('post', post_id)
+            else:
+                print("c'est PAS ok, le formulaire est INvalide")
         else:
-            print("c'est PAS ok, le formulaire est INvalide")
+            print ("vous n'etes PAS l'auteur du post")
+        return redirect ('post', post_id)
+        #return render(request, 'communitymanager/post.html', locals())
     else:
-        print ("vous n'etes PAS l'auteur du post")
+        form= NouveauPostForm(instance=post_modifie)
+        return render(request, 'communitymanager/modifier_post.html', locals())
 
-
-
-    return render(request, 'communitymanager/modifier_post.html', locals())
 
 def posts(request):
-    """ Afficher les communautes et le statut d'abonnement """
-
-    list_posts = get_list_or_404(Post)
-
+    """ Afficher les posts appartenant aux commuautés d'abonnement """
+    communautes_abonnes= Communaute.objects.filter(abonnes=request.user)
+    list_posts = Post.objects.filter(communaute__in=communautes_abonnes).order_by('-date_creation')
     return render(request, 'communitymanager/posts.html', locals())
 

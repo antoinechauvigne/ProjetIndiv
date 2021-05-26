@@ -32,6 +32,9 @@ class Post(models.Model):
     date_evenement = models.DateField(null=True, default=None, blank=True)
     auteur = models.ForeignKey(User, on_delete=models.CASCADE)
 
+    class Meta:  # qui est optionnelle
+        ordering = ['date_creation']
+
     def __str__(self):
         return self.titre
 

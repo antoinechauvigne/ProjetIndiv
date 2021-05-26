@@ -21,16 +21,17 @@
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <!-- Post preview-->
-                    <div class="nouveau_post">
-                        <h2 class="post-subtitle">{{ post.description }}</h2>
+                    <div class="modifier_post">
+                        <h1 class="post-title">Modification</h1>
+                        <h2 class="post-subtitle">{{ post_modifie.description }}</h2>
 
                     <div class="sauvegarde">
                         {% if sauvegarde %}
-                            <p class="post-meta">Ce nouveau post a bien été enregistré.</p>
+                            <p class="post-meta">Cette modification a bien été enregistrée.</p>
                         {% endif %}
                     </div>
                     <div class="form">
-                        <form action="{% url 'modif_post' %}" method="post">
+                        <form action="{% url 'modif_post' post_modifie.id%}" method="post">
                             {% csrf_token %}
                             {{ form.as_p }}
                             <input type="submit"/>
