@@ -49,6 +49,8 @@
   }
 }
 
+
+
 body {
   margin: 0;
   font-family: "Lora", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
@@ -129,6 +131,29 @@ p {
   margin-top: 0;
   margin-bottom: 1rem;
 }
+
+p_ita {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-style: italic;
+}
+comment {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  color: #373b3e;
+}
+
+comment_auteur_date {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-style: italic;
+  color: #00404e;
+}
+.double_colonne {
+  column-count: 2;
+}
+
+
 
 abbr[title],
 abbr[data-bs-original-title] {

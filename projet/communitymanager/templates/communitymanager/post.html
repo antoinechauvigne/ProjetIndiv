@@ -20,20 +20,16 @@
     <h2 style="background-color:{{mon_post.prio_color}}" class="post-subtitle">{{ mon_post.description }}</h2>
 </div>
 <div class="details">
-    <p class="post-subtitle">Post créé le {{ mon_post.date_creation }} par {{mon_post.auteur}}</p>
+    <p_ita class="post-subtitle">Post créé le {{ mon_post.date_creation }} par {{mon_post.auteur}}</p_ita>
 
 </div>
 <!-- Divider-->
 <hr class="my-4"/>
 
 {% for commentaire in commentaires %}
-<div class="commentaires">
-    <p class="post-subtitle">Commentaire de {{ commentaire.auteur }} le {{commentaire.date_creation}}{{ post.auteur
-        }}</p>
-    </a>
-    <p class="post-meta">
-        {{ commentaire.contenu }}</a>
-    </p>
+<div class="double_colonne">
+    <comment class="post-subtitle">Commentaire de <comment_auteur_date> {{ commentaire.auteur }}</comment_auteur_date> le <comment_auteur_date>{{commentaire.date_creation}}</comment_auteur_date></comment>
+    <p class="post-meta"> {{ commentaire.contenu }}</p>
 </div>
 <!-- Divider-->
 <hr class="my-4"/>
