@@ -38,7 +38,7 @@ def communaute(request, communaute_id):
     return render(request, 'communitymanager/communaute.html', locals())
 
 @login_required
-def post(request, post_id):
+def post(request, post_id, suis_auteur=1):
     """ Afficher un post """
 
     mon_post = Post.objects.get(id=post_id)
@@ -63,7 +63,7 @@ def nouveau_post(request):
     sauvegarde = False
     print("je suis pret")
     if request.method == "POST":
-        form = NouveauPostForm(request.POST) # or None)
+        form = NouveauPostForm(request.POST)
         if form.is_valid():
             new_post = form.save(commit=False)
             new_post.auteur = request.user
@@ -71,12 +71,9 @@ def nouveau_post(request):
             sauvegarde = True
             print(new_post)
             post_id=new_post.id
-
             return redirect('post', post_id)
-            #return render(request, 'communitymanager/post.html', locals())
     else:
         form = NouveauPostForm()
-
     return render(request, 'communitymanager/nouveau_post.html', locals())
 
 
@@ -85,26 +82,22 @@ def modif_post(request, post_id):
     """ Modifier un post """
     sauvegarde = False
     post_modifie = Post.objects.get(id=post_id)
+    suis_auteur = 0
     if request.method == "POST":
         form = NouveauPostForm(request.POST or None, instance=post_modifie)
-
-        if post_modifie.auteur==request.user:
-            print("c'est ok, vous etes l'auteur du post")
-            if form.is_valid():
-                print("c'est ok, le formulaire est valide")
-                sauvegarde = True
-                form.save()
-
-                #return redirect ('post', post_id)
-            else:
-                print("c'est PAS ok, le formulaire est INvalide")
+        if form.is_valid():
+            print("c'est ok, le formulaire est valide")
+            sauvegarde = True
+            form.save()
+            return redirect ('post', post_id)
         else:
-            print ("vous n'etes PAS l'auteur du post")
-        return redirect ('post', post_id)
-        #return render(request, 'communitymanager/post.html', locals())
+            return render(request, 'communitymanager/modifier_post.html', locals())
     else:
-        form= NouveauPostForm(instance=post_modifie)
-        return render(request, 'communitymanager/modifier_post.html', locals())
+        if post_modifie.auteur == request.user:
+            form= NouveauPostForm(instance=post_modifie)
+            return render(request, 'communitymanager/modifier_post.html', locals())
+        else:
+            return redirect('suis_auteur_post', post_id, suis_auteur)
 
 
 def posts(request):

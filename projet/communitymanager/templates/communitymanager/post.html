@@ -23,6 +23,11 @@
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
                     <!-- Post preview-->
+                    {% if suis_auteur == 0 %}
+                    <div class="pas_auteur">
+                        <h2 class="post-subtitle">Vous n'êtes pas autorisé à modifier ce post dont vous n'êtes pas l'auteur</h2>
+                        </div>
+                    {% endif %}
                     <div class="description">
                         <h2 class="post-subtitle">{{ mon_post.description }}</h2>
                         </div>
