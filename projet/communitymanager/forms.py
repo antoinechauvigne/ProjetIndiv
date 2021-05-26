@@ -1,7 +1,6 @@
 from django import forms
 from .models import Commentaire, Post
-import datetime
-
+from django.forms import widgets
 
 class CommentaireForm(forms.Form):
     """Formulaire d'ajout de commentaire à un post"""
@@ -16,16 +15,21 @@ class NouveauPostForm(forms.ModelForm):
     class Meta:
         model = Post
         exclude = ('auteur', 'date_creation')
+        widgets = {
+            'date_evenement': widgets.SelectDateWidget(),
+        }
 
     def clean(self):
         """Un événement doit contenir une date et une date ne peut pas ne pas être associée à un événement"""
         cleaned_data = super(NouveauPostForm, self).clean()
-        evenementiel = cleaned_data['evenementiel']
-        date_evenement = cleaned_data['date_evenement']
+        if'date_evenement' in cleaned_data.keys():
+            evenementiel = cleaned_data['evenementiel']
+            date_evenement = cleaned_data['date_evenement']
 
-        if (evenementiel and date_evenement == None):
-            raise forms.ValidationError('Précisez la date de votre événement')
-        if (not evenementiel and date_evenement != None):
-            raise forms.ValidationError(
-                'Vous semblez vouloir créer un événement, veuillez cocher la case correspondante')
+            if (evenementiel and date_evenement == None):
+                raise forms.ValidationError('Précisez la date de votre événement')
+            if (not evenementiel and date_evenement != None):
+                raise forms.ValidationError(
+                    'Vous semblez vouloir créer un événement, veuillez cocher la case correspondante')
+
         return cleaned_data

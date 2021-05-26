@@ -3,6 +3,8 @@
 <!-- Page des détails d'un post-->
 {% block header %}
 <h1>{{mon_post.titre}}</h1>
+
+<!-- Affichage de la date de l'évenement si cela en est un, rien sinon -->
 <span class="subheading">{% if mon_post.evenementiel %} Événement qui aura lieu le {{mon_post.date_evenement}}
                          {% endif %}</span>
 <span class="subheading">dans la communauté <a href="{% url 'communaute' mon_post.communaute.id %}">{{mon_post.communaute}} </a></span>
@@ -19,7 +21,7 @@
 </div>
 <div class="details">
     <p class="post-subtitle">Post créé le {{ mon_post.date_creation }} par {{mon_post.auteur}}</p>
-    <p class="post-subtitle">Priorité {{ mon_post.priorite }}</p>
+    <p style="color:{{mon_post.priorite}}" class="post-subtitle">Priorité {{ mon_post.priorite }}</p>
 
 </div>
 <!-- Divider-->
