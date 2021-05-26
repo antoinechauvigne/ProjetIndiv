@@ -1,3 +1,7 @@
+/* Fichier d'un template en ligne, quelque peu modifié
+Modifications signalées par un commentaire au dessus
+ */
+
 @charset "UTF-8";
 /*!
 * Start Bootstrap - Clean Blog v6.0.0 (https://startbootstrap.com/theme/clean-blog)
@@ -74,7 +78,7 @@ hr {
 hr:not([size]) {
   height: 1px;
 }
-
+/* Ajout du date_evt */
 h6, .h6, h5, .h5, h4, .h4, h3, .h3, h2, .h2, h1, .h1, date_evt {
   margin-top: 0;
   margin-bottom: 0.5rem;
@@ -92,16 +96,17 @@ h1, .h1 {
   }
 }
 
-h2, .h2 {
-  font-size: calc(1.325rem + 0.9vw);
-}
 @media (min-width: 1200px) {
+  h2, .h2 {
+    font-size: calc(1.325rem + 0.9vw);
+  }
   h2, .h2 {
     font-size: 2rem;
   }
 }
 
 h3, .h3 {
+  font-style: italic;
   font-size: calc(1.3rem + 0.6vw);
 }
 @media (min-width: 1200px) {
@@ -131,7 +136,7 @@ p {
   margin-top: 0;
   margin-bottom: 1rem;
 }
-
+/* Catégories ajoutées par antoine.chauvigne */
 p_ita {
   margin-top: 0;
   margin-bottom: 1rem;
@@ -171,6 +176,13 @@ date_evt {
   font-size: calc(1.275rem + 0.3vw);
   color: #0dcaf0;
 }
+p_date {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-weight: bolder;
+  color: #0dcaf0;
+}
+/* fin des catégories ajoutées par antoine.chauvigne */
 
 abbr[title],
 abbr[data-bs-original-title] {

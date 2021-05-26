@@ -48,6 +48,7 @@ def communaute(request, communaute_id):
     # Permet l'affichage de la couleur de la priorité
     for mon_post in posts:
         mon_post.prio_color = translate_color(mon_post.priorite.id)
+        mon_post.nb_comments = Commentaire.objects.filter(post=mon_post).count()
 
     return render(request, 'communitymanager/communaute.html', locals())
 
@@ -64,6 +65,9 @@ def post(request, post_id, suis_auteur=1):
 
     # Permet l'affichage de la couleur de la priorité
     mon_post.prio_color=translate_color(mon_post.priorite.id)
+
+    # Compte le nombre de commentaires
+    nb_comments = Commentaire.objects.filter(post__id=post_id).count()
 
     # Validation du formulaire de création de commentaire
     if form.is_valid():
@@ -136,8 +140,11 @@ def posts(request):
     list_posts = Post.objects.filter(communaute__in=communautes_abonnes).order_by('-date_creation')
 
     # Permet l'affichage de la couleur de la priorité
+    # et le Nombre de commentaires
     for mon_post in list_posts:
         mon_post.prio_color = translate_color(mon_post.priorite.id)
+        mon_post.nb_comments = Commentaire.objects.filter(post=mon_post).count()
+
 
     return render(request, 'communitymanager/posts.html', locals())
 

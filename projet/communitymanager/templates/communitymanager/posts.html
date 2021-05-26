@@ -20,11 +20,11 @@
         in <a href="{% url 'communaute' post.communaute.id %}"">{{post.communaute}}</a>
     </h4>
     <p class="post-meta">
-        Posted by
-        {{ post.auteur }}
-        on {{ post.date_creation}}</p>
+        Posted by <comment_auteur_date>
+        {{ post.auteur }}</comment_auteur_date>
+        on <comment_auteur_date>{{ post.date_creation}}</comment_auteur_date> <i class="fas fa-comment"></i> {{post.nb_comments}}</p>
     <p class="post-meta">
-        {% if post.evenementiel %} Événement qui aura lieu le {{post.date_evenement}}
+        {% if post.evenementiel %} Événement qui aura lieu le <p_date>{{post.date_evenement}}</p_date>
         {% endif %}
     </p>
 

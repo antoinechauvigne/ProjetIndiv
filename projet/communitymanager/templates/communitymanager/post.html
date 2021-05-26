@@ -24,10 +24,10 @@
 <div class="details">
     <p_ita class="post-subtitle">Post créé le <comment_auteur_date>{{ mon_post.date_creation }}</comment_auteur_date> par <comment_auteur_date>{{mon_post.auteur}}</comment_auteur_date></p_ita>
 
+    <p><i class="fas fa-comment"></i> {{nb_comments}}</p>
 </div>
 <!-- Divider-->
 <hr class="my-4"/>
-
 {% for commentaire in commentaires %}
 <div class="double_colonne">
     <comment class="post-subtitle">Commentaire de <comment_auteur_date> {{ commentaire.auteur }}</comment_auteur_date> le <comment_auteur_date>{{commentaire.date_creation}}</comment_auteur_date></comment>
