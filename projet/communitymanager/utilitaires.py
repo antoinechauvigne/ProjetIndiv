@@ -1,3 +1,4 @@
+
 """Ce fichier contient la méthode qui permet de traduire la couleur (l'id de la priorité)
     en une couleur connue de django pour afficher la priorité du post """
 
