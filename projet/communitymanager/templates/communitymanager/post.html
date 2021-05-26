@@ -1,28 +1,12 @@
 {% extends "base.html" %}
 
-{% block content %}
-
-<!-- Page Header-->
-        {% load static %}
-        <header class="masthead" style="background-image: url("../img/avion.jpg")">
-            <div class="container position-relative px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-md-10 col-lg-8 col-xl-7">
-                        <div class="site-heading">
+{% block header %}
                             <h1>{{mon_post.titre}}</h1>
                             <span class="subheading">{% if mon_post.evenementiel %} Événement qui aura lieu le {{mon_post.date_evenement}}
                          {% endif %}</span>
                             <span class="subheading">dans la communauté <a href="{% url 'communaute' mon_post.communaute.id %}">{{mon_post.communaute}} </a></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <!-- Main Content-->
-        <div class="container px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-7">
+{% endblock %}
+{% block content %}
                     <!-- Post preview-->
                     {% if suis_auteur == 0 %}
                     <div class="pas_auteur">
@@ -74,9 +58,5 @@
                     <!-- Pager-->
                     <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="{% url 'modif_post' post_id%}"> Modifier Post →</a></div>
                     <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="{% url 'post' post_id %}"> Retour →</a></div>
-
-                </div>
-            </div>
-        </div>
 
 {% endblock %}

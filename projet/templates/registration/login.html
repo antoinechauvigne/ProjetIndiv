@@ -2,28 +2,11 @@
 
 {% extends "base.html" %}
 
-{% block content %}
-
-
-        <!-- Page Header-->
-        {% load static %}
-        <header class="masthead" style="background-image: url("../img/avionbis.jpg")">
-            <div class="container position-relative px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-md-10 col-lg-8 col-xl-7">
-                        <div class="site-heading">
+{% block header %}
                             <h1>Connexion</h1>
                             <span class="subheading">Veuillez vous connecter pour accéder à vos Communautés</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </header>
-
-        <!-- Main Content-->
-        <div class="container px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-7">
+{% endblock %}
+{% block content %}
                      <!-- Page content-->
                         <div class="form">
                             {% if form.errors %}
@@ -59,19 +42,5 @@
                             {# Assumes you setup the password_reset view in your URLconf #}
                             <p><a href="{% url 'password_reset' %}">Lost password?</a></p>
                         </div>
-                    <!-- Pager-->
-                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="{% url 'posts' %}"> Tous les Posts →</a></div>
-                </div>
-            </div>
-        </div>
-
-
-
-
-
-
-
-
-
 
 {% endblock %}
