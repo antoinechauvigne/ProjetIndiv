@@ -1,5 +1,6 @@
 from django import forms
 from .models import Commentaire, Post
+import datetime
 
 
 
@@ -27,4 +28,3 @@ class NouveauPostForm(forms.ModelForm):
         if (not evenementiel and date_evenement != None):
                 raise forms.ValidationError('Vous semblez vouloir créer un événement, veuillez cocher la case correspondante')
         return cleaned_data
-
