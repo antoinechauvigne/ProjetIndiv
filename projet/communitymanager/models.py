@@ -2,7 +2,11 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.db import models
 
-# Create your models here.
+"""
+Les 4 modèles créés nécessaires à l'application
+"""
+
+
 class Communaute(models.Model):
     nom = models.CharField(max_length=200)
     abonnes = models.ManyToManyField(User)
@@ -37,6 +41,7 @@ class Post(models.Model):
 
     def __str__(self):
         return self.titre
+
 
 class Commentaire(models.Model):
     date_creation = models.DateTimeField(default=timezone.now)
