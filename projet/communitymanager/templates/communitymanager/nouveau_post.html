@@ -1,28 +1,31 @@
 {% extends "base.html" %}
 
+<!-- Page pour créer un nouveau post-->
 {% block header %}
-                            <h1>Nouveau post</h1>
+<h1>Nouveau post</h1>
 {% endblock %}
+
+
 {% block content %}
-                    <!-- Post preview-->
-                    <div class="nouveau_post">
-                        <h2 class="post-subtitle">{{ post.description }}</h2>
+<!-- Post preview-->
+<div class="nouveau_post">
+    <h2 class="post-subtitle">{{ post.description }}</h2>
 
-                    <div class="sauvegarde">
-                        {% if sauvegarde %}
-                            <p class="post-meta">Ce nouveau post a bien été enregistré.</p>
-                        {% endif %}
-                    </div>
-                    <div class="form">
-                        <form action="{% url 'nouveau_post' %}" method="post">
-                            {% csrf_token %}
-                            {{ form.as_p }}
-                            <input type="date"/>
-                            <!--input type="submit"/-->
-                        </form>
-                    </div>
-                                        <!-- Pager-->
-                    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="{% url 'communautes'%}"> Retour →</a></div>
-
-
+    <div class="sauvegarde">
+        {% if sauvegarde %}
+        <p class="post-meta">Ce nouveau post a bien été enregistré.</p>
+        {% endif %}
+    </div>
+    <div class="form">
+        <form action="{% url 'nouveau_post' %}" method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <input type="date"/>
+            <!--input type="submit"/-->
+        </form>
+    </div>
+    <!-- Pager-->
+    <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase"
+                                                    href="{% url 'communautes'%}"> Retour →</a></div>
+</div>
 {% endblock %}
