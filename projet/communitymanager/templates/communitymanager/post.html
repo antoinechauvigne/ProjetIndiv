@@ -5,7 +5,7 @@
 <h1>{{mon_post.titre}}</h1>
 
 <!-- Affichage de la date de l'évenement si cela en est un, rien sinon -->
-<span class="subheading">{% if mon_post.evenementiel %} Événement qui aura lieu le <date_evt>{{mon_post.date_evenement}}</date_evt>
+<span class="subheading">{% if mon_post.evenementiel %} <i class="fas fa-calendar"></i> Événement qui aura lieu le <date_evt>{{mon_post.date_evenement}}</date_evt>
                          {% endif %}</span>
 <span class="subheading">dans la communauté <a href="{% url 'communaute' mon_post.communaute.id %}">{{mon_post.communaute}} </a></span>
 {% endblock %}
@@ -24,14 +24,14 @@
 <div class="details">
     <p_ita class="post-subtitle">Post créé le <comment_auteur_date>{{ mon_post.date_creation }}</comment_auteur_date> par <comment_auteur_date>{{mon_post.auteur}}</comment_auteur_date></p_ita>
 
-    <p><i class="fas fa-comment"></i> {{nb_comments}}</p>
+    <p><i class="fas fa-comments"></i> {{nb_comments}}</p>
 </div>
 <!-- Divider-->
 <hr class="my-4"/>
 {% for commentaire in commentaires %}
 <div class="double_colonne">
     <comment class="post-subtitle">Commentaire de <comment_auteur_date> {{ commentaire.auteur }}</comment_auteur_date> le <comment_auteur_date>{{commentaire.date_creation}}</comment_auteur_date></comment>
-    <p class="post-meta"> {{ commentaire.contenu }}</p>
+    <p class="post-meta"> <i class="fas fa-comments"></i> {{ commentaire.contenu }}</p>
 </div>
 <!-- Divider-->
 <hr class="my-4"/>
@@ -58,7 +58,7 @@
 
 <!-- Pager-->
 <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase"
-                                                href="{% url 'modif_post' post_id%}"> Modifier Post →</a></div>
+                                                href="{% url 'modif_post' post_id%}"> Modifier Post <i class="fas fa-edit"></i>→</a></div>
 <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="{% url 'post' post_id %}">
     Retour →</a></div>
 

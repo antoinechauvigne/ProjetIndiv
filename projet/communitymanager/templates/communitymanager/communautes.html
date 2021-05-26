@@ -4,7 +4,7 @@
 <!-- C'est aussi la page d'accueil-->
 
 {% block header %}
-<h1>Communautés</h1>
+<h1>Communautés <i class="fas fa-plane"></i></h1>
 <span class="subheading">Liste des Communautés disponibles à l'ISAE, pour ne rien louper</span>
 {% endblock %}
 
@@ -28,7 +28,7 @@
         {% endif %}
 
 
-        <p class="post-meta">Nombre de posts : {{ communaute.nb_posts }}</p>
+        <p class="post-meta"> <i class="fas fa-mail-bulk"></i> Nombre de posts : {{ communaute.nb_posts }}</p>
 
 
     </a>
