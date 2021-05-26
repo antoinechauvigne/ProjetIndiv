@@ -3,12 +3,10 @@ from .models import Commentaire, Post
 
 
 
-class CommentaireForm(forms.ModelForm):
-    class Meta:
-        model = Commentaire
-        fields = ('contenu',)  # on veut utiliser tous les champs de la classe Commenature
+class CommentaireForm(forms.Form):
     #Pour que la case s'affiche sur plusieurs lignes
-    #contenu = forms.CharField(widget=forms.Textarea)
+    contenu = forms.CharField(widget=forms.Textarea, label='Votre Commentaire')
+
 
 
 class NouveauPostForm(forms.ModelForm):

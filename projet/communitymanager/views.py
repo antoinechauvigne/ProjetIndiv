@@ -99,7 +99,7 @@ def modif_post(request, post_id):
         else:
             return redirect('suis_auteur_post', post_id, suis_auteur)
 
-
+@login_required
 def posts(request):
     """ Afficher les posts appartenant aux commuautés d'abonnement """
     communautes_abonnes= Communaute.objects.filter(abonnes=request.user)
