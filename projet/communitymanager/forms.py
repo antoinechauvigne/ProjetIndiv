@@ -1,5 +1,5 @@
 from django import forms
-from .models import Commentaire, Post
+from .models import Post
 from django.forms import widgets
 
 class CommentaireForm(forms.Form):

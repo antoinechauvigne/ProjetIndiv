@@ -17,11 +17,10 @@
 </div>
 {% endif %}
 <div class="description">
-    <h2 class="post-subtitle">{{ mon_post.description }}</h2>
+    <h2 style="background-color:{{mon_post.prio_color}}" class="post-subtitle">{{ mon_post.description }}</h2>
 </div>
 <div class="details">
     <p class="post-subtitle">Post créé le {{ mon_post.date_creation }} par {{mon_post.auteur}}</p>
-    <p style="color:{{mon_post.priorite}}" class="post-subtitle">Priorité {{ mon_post.priorite }}</p>
 
 </div>
 <!-- Divider-->

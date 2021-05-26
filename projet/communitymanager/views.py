@@ -4,6 +4,8 @@ from django.utils import timezone
 
 from .forms import CommentaireForm, NouveauPostForm
 from .models import Communaute, Post, Commentaire
+from .utilitaires import translate_color
+
 
 
 @login_required
@@ -42,6 +44,11 @@ def communaute(request, communaute_id):
 
     posts = Post.objects.filter(communaute__id=communaute_id).order_by('-date_creation')
     communaute_selectionnee = Communaute.objects.get(id=communaute_id)
+
+    # Permet l'affichage de la couleur de la priorité
+    for mon_post in posts:
+        mon_post.prio_color = translate_color(mon_post.priorite.id)
+
     return render(request, 'communitymanager/communaute.html', locals())
 
 
@@ -54,6 +61,9 @@ def post(request, post_id, suis_auteur=1):
     sauvegarde = False
     form = CommentaireForm(request.POST or None)
     communaute_id = mon_post.communaute.id
+
+    # Permet l'affichage de la couleur de la priorité
+    mon_post.prio_color=translate_color(mon_post.priorite.id)
 
     # Validation du formulaire de création de commentaire
     if form.is_valid():
@@ -87,6 +97,7 @@ def nouveau_post(request):
         form = NouveauPostForm()
     # Permet le réappel de la même vue afin de valider le formulaire
     return render(request, 'communitymanager/nouveau_post.html', locals())
+
 
 
 @login_required
@@ -124,4 +135,9 @@ def posts(request):
     communautes_abonnes = Communaute.objects.filter(abonnes=request.user)
     list_posts = Post.objects.filter(communaute__in=communautes_abonnes).order_by('-date_creation')
 
+    # Permet l'affichage de la couleur de la priorité
+    for mon_post in list_posts:
+        mon_post.prio_color = translate_color(mon_post.priorite.id)
+
     return render(request, 'communitymanager/posts.html', locals())
+

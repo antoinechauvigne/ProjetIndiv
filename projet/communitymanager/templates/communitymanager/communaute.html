@@ -12,7 +12,7 @@
 {% for post in posts %}
 <div class="posts">
     <a href="{% url 'post' post.id %}">
-        <h2 class="post-title">{{ post.titre }}</h2>
+        <h2 style="background-color:{{post.prio_color}}" class="post-title">{{ post.titre }}</h2>
         <h3 class="post-subtitle">{{ post.description }}</h3>
     </a>
     </a>
