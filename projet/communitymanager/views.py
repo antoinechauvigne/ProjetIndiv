@@ -26,6 +26,7 @@ def communautes(request, communaute_id=0, modification=2):
         if request.user in communaute.abonnes.all():
             je_suis_abonne = True
         communaute.user_abonne = je_suis_abonne
+        communaute.nb_posts= Post.objects.filter(communaute=communaute).count()
 
     return render(request, 'communitymanager/communautes.html', locals())
 

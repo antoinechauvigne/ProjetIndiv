@@ -26,6 +26,5 @@ class NouveauPostForm(forms.ModelForm):
                 raise forms.ValidationError('Précisez la date de votre événement')
         if (not evenementiel and date_evenement != None):
                 raise forms.ValidationError('Vous semblez vouloir créer un événement, veuillez cocher la case correspondante')
-
         return cleaned_data
 

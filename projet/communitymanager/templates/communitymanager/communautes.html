@@ -13,6 +13,8 @@
                     <div class="communautes">
                         <a href="{% url 'communaute' communaute.id %}">
                             <h2 class="post-title">{{ communaute.nom }}</h2>
+                            <p class="post-meta">Nombre de posts : {{ communaute.nb_posts }}</p>
+
                             {% if communaute.user_abonne %}
                             <h3 class="post-subtitle">Vous êtes abonné</h3>
                             <a href="{% url 'modifier_abonnement' communaute.id 0 %}">
