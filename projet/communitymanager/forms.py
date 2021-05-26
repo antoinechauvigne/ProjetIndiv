@@ -1,13 +1,15 @@
 from django import forms
-from .models import Post
+from .models import Commentaire, Post
 from django.forms import widgets
 
-class CommentaireForm(forms.Form):
-    """Formulaire d'ajout de commentaire à un post"""
 
-    # Pour que la case s'affiche sur plusieurs lignes
-    contenu = forms.CharField(widget=forms.Textarea, label='Votre Commentaire')
-
+class CommentaireForm(forms.ModelForm):
+    class Meta:
+        model = Commentaire
+        fields = ('contenu',)
+        labels = {
+            'contenu': ('Votre Commentaire'),
+        }
 
 class NouveauPostForm(forms.ModelForm):
     """Formulaire de création et de modification d'un post"""
