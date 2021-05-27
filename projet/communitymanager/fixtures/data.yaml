@@ -1,0 +1,918 @@
+- model: communitymanager.communaute
+  pk: 1
+  fields:
+    nom: Communaute_1
+    abonnes:
+    - 1
+    - 2
+- model: communitymanager.communaute
+  pk: 2
+  fields:
+    nom: Communaute_2
+    abonnes: []
+- model: communitymanager.communaute
+  pk: 3
+  fields:
+    nom: Communaute_3
+    abonnes:
+    - 1
+    - 2
+- model: communitymanager.priorite
+  pk: 1
+  fields:
+    label: blanche
+- model: communitymanager.priorite
+  pk: 2
+  fields:
+    label: jaune
+- model: communitymanager.priorite
+  pk: 3
+  fields:
+    label: orange
+- model: communitymanager.priorite
+  pk: 4
+  fields:
+    label: rouge
+- model: communitymanager.priorite
+  pk: 5
+  fields:
+    label: ecarlate
+- model: communitymanager.post
+  pk: 1
+  fields:
+    titre: Titre du post
+    description: Description du post
+    date_creation: 2021-05-18 14:47:24+00:00
+    communaute: 1
+    priorite: 3
+    evenementiel: true
+    date_evenement: 2021-05-27
+    auteur: 2
+- model: communitymanager.post
+  pk: 2
+  fields:
+    titre: Mon 2eme poste
+    description: Description du 2eme poste
+    date_creation: 2021-05-19 20:08:13.921331+00:00
+    communaute: 1
+    priorite: 4
+    evenementiel: true
+    date_evenement: 2021-05-28
+    auteur: 2
+- model: communitymanager.post
+  pk: 3
+  fields:
+    titre: Mon 3eme poste
+    description: Description du 3eme poste
+    date_creation: 2021-05-19 20:09:57.786721+00:00
+    communaute: 1
+    priorite: 4
+    evenementiel: true
+    date_evenement: 2021-05-28
+    auteur: 2
+- model: communitymanager.post
+  pk: 5
+  fields:
+    titre: Mon 5eme poste
+    description: Description du 5eme poste
+    date_creation: 2021-05-19 20:16:20+00:00
+    communaute: 2
+    priorite: 1
+    evenementiel: true
+    date_evenement: 2021-05-30
+    auteur: 2
+- model: communitymanager.post
+  pk: 6
+  fields:
+    titre: Mon 6eme poste
+    description: Description du 6eme poste
+    date_creation: 2021-05-19 20:18:55.086792+00:00
+    communaute: 3
+    priorite: 1
+    evenementiel: true
+    date_evenement: 2021-05-28
+    auteur: 1
+- model: communitymanager.post
+  pk: 7
+  fields:
+    titre: Mon 7eme poste
+    description: Description du 7eme poste
+    date_creation: 2021-05-19 20:19:27.811678+00:00
+    communaute: 3
+    priorite: 1
+    evenementiel: true
+    date_evenement: 2021-05-28
+    auteur: 1
+- model: communitymanager.post
+  pk: 8
+  fields:
+    titre: Mon 8eme poste
+    description: Description du 8eme poste
+    date_creation: 2021-05-19 20:19:58.325577+00:00
+    communaute: 3
+    priorite: 1
+    evenementiel: true
+    date_evenement: 2021-05-28
+    auteur: 1
+- model: communitymanager.post
+  pk: 9
+  fields:
+    titre: Mon 9eme poste
+    description: Description du 9eme poste
+    date_creation: 2021-05-19 20:21:05.850166+00:00
+    communaute: 3
+    priorite: 1
+    evenementiel: true
+    date_evenement: 2021-05-28
+    auteur: 1
+- model: communitymanager.post
+  pk: 10
+  fields:
+    titre: Mon 9eme poste
+    description: Description du 9eme poste
+    date_creation: 2021-05-19 20:21:22.373198+00:00
+    communaute: 3
+    priorite: 1
+    evenementiel: true
+    date_evenement: 2021-05-28
+    auteur: 1
+- model: communitymanager.post
+  pk: 11
+  fields:
+    titre: Mon 10eme poste
+    description: Description du 10eme poste
+    date_creation: 2021-05-19 20:23:06.549459+00:00
+    communaute: 2
+    priorite: 2
+    evenementiel: true
+    date_evenement: 2021-05-30
+    auteur: 1
+- model: communitymanager.post
+  pk: 12
+  fields:
+    titre: Mon 12eme poste
+    description: Description du 12eme poste
+    date_creation: 2021-05-19 20:24:50.694182+00:00
+    communaute: 2
+    priorite: 2
+    evenementiel: true
+    date_evenement: 2021-05-30
+    auteur: 1
+- model: communitymanager.post
+  pk: 13
+  fields:
+    titre: 14eme poste
+    description: Description du post
+    date_creation: 2021-05-19 20:32:21.418219+00:00
+    communaute: 2
+    priorite: 2
+    evenementiel: true
+    date_evenement: 2021-05-28
+    auteur: 1
+- model: communitymanager.post
+  pk: 14
+  fields:
+    titre: 15eme poste
+    description: Description du post
+    date_creation: 2021-05-19 20:35:16.767374+00:00
+    communaute: 2
+    priorite: 2
+    evenementiel: true
+    date_evenement: 2021-05-28
+    auteur: 1
+- model: communitymanager.post
+  pk: 15
+  fields:
+    titre: 15eme poste
+    description: Description
+    date_creation: 2021-05-19 20:36:00.968191+00:00
+    communaute: 2
+    priorite: 1
+    evenementiel: true
+    date_evenement: 2021-05-28
+    auteur: 1
+- model: communitymanager.post
+  pk: 16
+  fields:
+    titre: 16eme poste
+    description: '16'
+    date_creation: 2021-05-19 20:41:44.969938+00:00
+    communaute: 2
+    priorite: 1
+    evenementiel: true
+    date_evenement: 2021-05-28
+    auteur: 1
+- model: communitymanager.post
+  pk: 17
+  fields:
+    titre: 17eme poste
+    description: 17e
+    date_creation: 2021-05-19 20:47:41.783112+00:00
+    communaute: 2
+    priorite: 1
+    evenementiel: true
+    date_evenement: 2021-05-28
+    auteur: 1
+- model: communitymanager.post
+  pk: 18
+  fields:
+    titre: 18eme
+    description: 18e descr
+    date_creation: 2021-05-20 14:31:56.290998+00:00
+    communaute: 2
+    priorite: 2
+    evenementiel: true
+    date_evenement: 2021-05-28
+    auteur: 1
+- model: communitymanager.post
+  pk: 19
+  fields:
+    titre: 19eme
+    description: 19eme desc
+    date_creation: 2021-05-20 14:36:23.981296+00:00
+    communaute: 3
+    priorite: 2
+    evenementiel: true
+    date_evenement: 2021-05-28
+    auteur: 1
+- model: communitymanager.post
+  pk: 20
+  fields:
+    titre: 19eme
+    description: 19eme desc
+    date_creation: 2021-05-20 14:37:23.259342+00:00
+    communaute: 2
+    priorite: 3
+    evenementiel: true
+    date_evenement: 2021-05-28
+    auteur: 1
+- model: communitymanager.post
+  pk: 21
+  fields:
+    titre: 20eme
+    description: 20eme des
+    date_creation: 2021-05-20 14:38:20.115841+00:00
+    communaute: 2
+    priorite: 2
+    evenementiel: true
+    date_evenement: 2021-05-28
+    auteur: 1
+- model: communitymanager.post
+  pk: 22
+  fields:
+    titre: 20eme
+    description: 20eme des
+    date_creation: 2021-05-20 14:38:41.118855+00:00
+    communaute: 2
+    priorite: 2
+    evenementiel: true
+    date_evenement: 2021-05-28
+    auteur: 1
+- model: communitymanager.post
+  pk: 23
+  fields:
+    titre: 20eme
+    description: 20eme des
+    date_creation: 2021-05-20 14:38:45.542304+00:00
+    communaute: 2
+    priorite: 2
+    evenementiel: true
+    date_evenement: 2021-05-28
+    auteur: 1
+- model: communitymanager.post
+  pk: 24
+  fields:
+    titre: 22eme
+    description: 22eme
+    date_creation: 2021-05-20 14:41:18.436002+00:00
+    communaute: 2
+    priorite: 3
+    evenementiel: true
+    date_evenement: 2021-05-28
+    auteur: 1
+- model: communitymanager.post
+  pk: 25
+  fields:
+    titre: 24eme
+    description: 24>e desc
+    date_creation: 2021-05-20 14:42:30.778197+00:00
+    communaute: 2
+    priorite: 2
+    evenementiel: true
+    date_evenement: 2021-05-28
+    auteur: 1
+- model: communitymanager.post
+  pk: 26
+  fields:
+    titre: 25eme
+    description: 25des
+    date_creation: 2021-05-20 14:43:03.375148+00:00
+    communaute: 2
+    priorite: 4
+    evenementiel: true
+    date_evenement: 2021-05-28
+    auteur: 1
+- model: communitymanager.post
+  pk: 27
+  fields:
+    titre: 26e
+    description: 26des
+    date_creation: 2021-05-20 14:46:27.995400+00:00
+    communaute: 2
+    priorite: 2
+    evenementiel: true
+    date_evenement: 2021-05-28
+    auteur: 1
+- model: communitymanager.post
+  pk: 28
+  fields:
+    titre: 28e
+    description: 28des
+    date_creation: 2021-05-20 14:48:13.179361+00:00
+    communaute: 2
+    priorite: 2
+    evenementiel: true
+    date_evenement: 2021-05-28
+    auteur: 1
+- model: communitymanager.post
+  pk: 29
+  fields:
+    titre: 28e
+    description: 28des
+    date_creation: 2021-05-20 14:48:27.983754+00:00
+    communaute: 2
+    priorite: 2
+    evenementiel: true
+    date_evenement: 2021-05-28
+    auteur: 1
+- model: communitymanager.post
+  pk: 30
+  fields:
+    titre: 29e
+    description: 2çdes
+    date_creation: 2021-05-20 14:49:11.938386+00:00
+    communaute: 2
+    priorite: 2
+    evenementiel: true
+    date_evenement: 2021-05-28
+    auteur: 1
+- model: communitymanager.post
+  pk: 31
+  fields:
+    titre: 33e
+    description: 33des
+    date_creation: 2021-05-20 15:02:26+00:00
+    communaute: 2
+    priorite: 2
+    evenementiel: true
+    date_evenement: 2021-05-28
+    auteur: 1
+- model: communitymanager.post
+  pk: 32
+  fields:
+    titre: 36e
+    description: 36des
+    date_creation: 2021-05-20 21:24:57+00:00
+    communaute: 2
+    priorite: 3
+    evenementiel: true
+    date_evenement: 2021-05-30
+    auteur: 1
+- model: communitymanager.post
+  pk: 33
+  fields:
+    titre: 36e
+    description: 36des
+    date_creation: 2021-05-20 21:24:57+00:00
+    communaute: 2
+    priorite: 3
+    evenementiel: true
+    date_evenement: 2021-05-30
+    auteur: 1
+- model: communitymanager.post
+  pk: 34
+  fields:
+    titre: 36e
+    description: 36des
+    date_creation: 2021-05-20 21:24:57+00:00
+    communaute: 2
+    priorite: 3
+    evenementiel: true
+    date_evenement: 2021-05-30
+    auteur: 1
+- model: communitymanager.post
+  pk: 35
+  fields:
+    titre: 41e dans comm3
+    description: 41descom3
+    date_creation: 2021-05-21 13:38:05+00:00
+    communaute: 1
+    priorite: 1
+    evenementiel: true
+    date_evenement: 2021-05-28
+    auteur: 1
+- model: communitymanager.post
+  pk: 36
+  fields:
+    titre: 40ème poste sans evt
+    description: pas evt
+    date_creation: 2021-05-25 07:26:04+00:00
+    communaute: 3
+    priorite: 4
+    evenementiel: false
+    date_evenement: null
+    auteur: 1
+- model: communitymanager.post
+  pk: 37
+  fields:
+    titre: 41e evt
+    description: 41evt
+    date_creation: 2021-05-25 08:51:59+00:00
+    communaute: 1
+    priorite: 1
+    evenementiel: true
+    date_evenement: null
+    auteur: 1
+- model: communitymanager.post
+  pk: 38
+  fields:
+    titre: 42eme post id37
+    description: ce post a l'id 37
+    date_creation: 2021-05-25 09:53:55+00:00
+    communaute: 3
+    priorite: 5
+    evenementiel: false
+    date_evenement: null
+    auteur: 1
+- model: communitymanager.post
+  pk: 39
+  fields:
+    titre: 45eme poste
+    description: ceci est mon 45e poste
+    date_creation: 2021-05-25 10:14:46+00:00
+    communaute: 3
+    priorite: 4
+    evenementiel: true
+    date_evenement: null
+    auteur: 1
+- model: communitymanager.post
+  pk: 40
+  fields:
+    titre: 49e post
+    description: ceci est 49
+    date_creation: 2021-05-25 10:30:55+00:00
+    communaute: 2
+    priorite: 2
+    evenementiel: true
+    date_evenement: 2021-05-30
+    auteur: 1
+- model: communitymanager.post
+  pk: 41
+  fields:
+    titre: 41e evt
+    description: 41evt qui a l'ID 37
+    date_creation: 2021-05-25 08:51:59+00:00
+    communaute: 1
+    priorite: 1
+    evenementiel: true
+    date_evenement: null
+    auteur: 1
+- model: communitymanager.post
+  pk: 42
+  fields:
+    titre: 41e evt
+    description: 41evt qui a l'ID 41
+    date_creation: 2021-05-25 08:51:59+00:00
+    communaute: 1
+    priorite: 1
+    evenementiel: true
+    date_evenement: null
+    auteur: 1
+- model: communitymanager.post
+  pk: 43
+  fields:
+    titre: 41e evt
+    description: 41evt qui a l'ID 42
+    date_creation: 2021-05-25 08:51:59+00:00
+    communaute: 1
+    priorite: 1
+    evenementiel: true
+    date_evenement: null
+    auteur: 1
+- model: communitymanager.post
+  pk: 44
+  fields:
+    titre: 41e evt
+    description: 41evt qui a l'ID 43
+    date_creation: 2021-05-25 08:51:59+00:00
+    communaute: 1
+    priorite: 1
+    evenementiel: true
+    date_evenement: null
+    auteur: 1
+- model: communitymanager.post
+  pk: 45
+  fields:
+    titre: 53ème post que je viens de modifier
+    description: Ceci est mon 53eme post qui a l'ID 45
+    date_creation: 2021-05-25 16:09:01+00:00
+    communaute: 1
+    priorite: 2
+    evenementiel: true
+    date_evenement: 2021-05-30
+    auteur: 1
+- model: communitymanager.post
+  pk: 46
+  fields:
+    titre: Titre du 56e post
+    description: Trop cool aucun besoin de date creation
+    date_creation: 2021-05-26 09:20:48.591778+00:00
+    communaute: 1
+    priorite: 5
+    evenementiel: false
+    date_evenement: null
+    auteur: 2
+- model: communitymanager.post
+  pk: 47
+  fields:
+    titre: 57e post
+    description: blabla
+    date_creation: 2021-05-26 09:29:43.971152+00:00
+    communaute: 1
+    priorite: 2
+    evenementiel: true
+    date_evenement: 2021-05-28
+    auteur: 2
+- model: communitymanager.post
+  pk: 48
+  fields:
+    titre: Ce post est modifié par bb
+    description: Description du 58
+    date_creation: 2021-05-26 09:32:31.493784+00:00
+    communaute: 1
+    priorite: 5
+    evenementiel: false
+    date_evenement: null
+    auteur: 2
+- model: communitymanager.post
+  pk: 49
+  fields:
+    titre: CSS court
+    description: Post de test avec le CSS raccourci qui en fait ne fonctionne pas
+    date_creation: 2021-05-26 15:36:11.350285+00:00
+    communaute: 1
+    priorite: 1
+    evenementiel: true
+    date_evenement: 2022-01-01
+    auteur: 1
+- model: communitymanager.post
+  pk: 50
+  fields:
+    titre: Post avec la date en menu deroulant
+    description: "Je blablate. \r\nVous etes conviés à un super event en 2025"
+    date_creation: 2021-05-26 17:23:08.465345+00:00
+    communaute: 1
+    priorite: 3
+    evenementiel: true
+    date_evenement: 2025-02-03
+    auteur: 1
+- model: communitymanager.post
+  pk: 51
+  fields:
+    titre: Post SANS la date en menu deroulant
+    description: Post qui n'est pas un événement
+    date_creation: 2021-05-26 17:23:45.291092+00:00
+    communaute: 1
+    priorite: 2
+    evenementiel: false
+    date_evenement: null
+    auteur: 1
+- model: communitymanager.post
+  pk: 52
+  fields:
+    titre: Post Orange test
+    description: Description post orange
+    date_creation: 2021-05-26 18:24:29.910598+00:00
+    communaute: 1
+    priorite: 3
+    evenementiel: true
+    date_evenement: 2021-02-22
+    auteur: 1
+- model: communitymanager.post
+  pk: 53
+  fields:
+    titre: Post avec date invalide
+    description: Description
+    date_creation: 2021-05-26 18:29:59.993515+00:00
+    communaute: 2
+    priorite: 3
+    evenementiel: true
+    date_evenement: 2023-02-04
+    auteur: 1
+- model: communitymanager.post
+  pk: 54
+  fields:
+    titre: Post a prio Blanche modif en jaune
+    description: Prio blanche puis jaune
+    date_creation: 2021-05-26 18:45:22.491399+00:00
+    communaute: 1
+    priorite: 2
+    evenementiel: false
+    date_evenement: null
+    auteur: 1
+- model: communitymanager.post
+  pk: 55
+  fields:
+    titre: Post à commentaires
+    description: "Pourquoi les commentaires ont ils cessé de fonctionner ?\r\nJe viens
+      de modifier la description du post"
+    date_creation: 2021-05-26 20:15:43.081939+00:00
+    communaute: 3
+    priorite: 3
+    evenementiel: true
+    date_evenement: 2026-08-02
+    auteur: 1
+- model: communitymanager.post
+  pk: 56
+  fields:
+    titre: Last post
+    description: Description last post
+    date_creation: 2021-05-26 22:22:14.997020+00:00
+    communaute: 3
+    priorite: 4
+    evenementiel: false
+    date_evenement: null
+    auteur: 1
+- model: communitymanager.commentaire
+  pk: 1
+  fields:
+    date_creation: 2021-05-19 11:47:11+00:00
+    contenu: blablabla
+    auteur: 2
+    post: 1
+- model: communitymanager.commentaire
+  pk: 2
+  fields:
+    date_creation: 2021-05-19 12:05:55+00:00
+    contenu: blablabla2
+    auteur: 2
+    post: 1
+- model: communitymanager.commentaire
+  pk: 3
+  fields:
+    date_creation: 2021-05-17 00:00:00+00:00
+    contenu: blabla3online
+    auteur: 2
+    post: 1
+- model: communitymanager.commentaire
+  pk: 4
+  fields:
+    date_creation: 2021-05-17 00:00:00+00:00
+    contenu: blabla3online
+    auteur: 2
+    post: 1
+- model: communitymanager.commentaire
+  pk: 5
+  fields:
+    date_creation: 2021-05-19 18:38:58+00:00
+    contenu: Je trouve ce post très intéressant
+    auteur: 1
+    post: 1
+- model: communitymanager.commentaire
+  pk: 6
+  fields:
+    date_creation: 2021-05-19 18:39:47+00:00
+    contenu: bla4
+    auteur: 2
+    post: 1
+- model: communitymanager.commentaire
+  pk: 7
+  fields:
+    date_creation: 2021-05-19 18:48:57.402116+00:00
+    contenu: J'ajoute seulement du contenu
+    auteur: 1
+    post: 1
+- model: communitymanager.commentaire
+  pk: 8
+  fields:
+    date_creation: 2021-05-19 18:49:04.330153+00:00
+    contenu: J'ajoute seulement du contenu
+    auteur: 1
+    post: 1
+- model: communitymanager.commentaire
+  pk: 9
+  fields:
+    date_creation: 2021-05-19 18:49:20.777803+00:00
+    contenu: J'ajoute seulement du contenu
+    auteur: 2
+    post: 1
+- model: communitymanager.commentaire
+  pk: 10
+  fields:
+    date_creation: 2021-05-19 20:08:48.417027+00:00
+    contenu: Premier commentaire sur 2eme poste
+    auteur: 2
+    post: 2
+- model: communitymanager.commentaire
+  pk: 11
+  fields:
+    date_creation: 2021-05-19 20:27:22.959275+00:00
+    contenu: comment 12eme poste
+    auteur: 1
+    post: 12
+- model: communitymanager.commentaire
+  pk: 12
+  fields:
+    date_creation: 2021-05-20 15:14:05.607127+00:00
+    contenu: commentaire 34
+    auteur: 1
+    post: 1
+- model: communitymanager.commentaire
+  pk: 13
+  fields:
+    date_creation: 2021-05-20 15:32:36.191826+00:00
+    contenu: blbbla du post 33
+    auteur: 1
+    post: 31
+- model: communitymanager.commentaire
+  pk: 14
+  fields:
+    date_creation: 2021-05-20 15:49:55.445587+00:00
+    contenu: commentaire 34
+    auteur: 1
+    post: 1
+- model: communitymanager.commentaire
+  pk: 15
+  fields:
+    date_creation: 2021-05-20 15:50:19.539736+00:00
+    contenu: commentaire 34
+    auteur: 1
+    post: 1
+- model: communitymanager.commentaire
+  pk: 16
+  fields:
+    date_creation: 2021-05-20 21:28:11.471962+00:00
+    contenu: Commentaire du post 34 appelé 36
+    auteur: 1
+    post: 34
+- model: communitymanager.commentaire
+  pk: 17
+  fields:
+    date_creation: 2021-05-21 13:39:52.035723+00:00
+    contenu: en fait il est dans Comm1
+    auteur: 1
+    post: 35
+- model: communitymanager.commentaire
+  pk: 18
+  fields:
+    date_creation: 2021-05-21 19:44:46.245657+00:00
+    contenu: commentaire du post5
+    auteur: 1
+    post: 5
+- model: communitymanager.commentaire
+  pk: 19
+  fields:
+    date_creation: 2021-05-25 07:18:01.337758+00:00
+    contenu: test commentaire mardi mardi
+    auteur: 1
+    post: 34
+- model: communitymanager.commentaire
+  pk: 20
+  fields:
+    date_creation: 2021-05-25 09:42:08.022533+00:00
+    contenu: ce post a l'ID 36
+    auteur: 1
+    post: 36
+- model: communitymanager.commentaire
+  pk: 21
+  fields:
+    date_creation: 2021-05-25 09:42:23.027988+00:00
+    contenu: ce post a bel et bien l'ID 36
+    auteur: 1
+    post: 36
+- model: communitymanager.commentaire
+  pk: 22
+  fields:
+    date_creation: 2021-05-25 16:09:38.384313+00:00
+    contenu: il porte id 45
+    auteur: 1
+    post: 45
+- model: communitymanager.commentaire
+  pk: 23
+  fields:
+    date_creation: 2021-05-26 08:43:33.912473+00:00
+    contenu: Je viens d'ajouter un commentaire
+    auteur: 1
+    post: 45
+- model: communitymanager.commentaire
+  pk: 24
+  fields:
+    date_creation: 2021-05-26 08:57:23.481248+00:00
+    contenu: commentaire de bb
+    auteur: 2
+    post: 45
+- model: communitymanager.commentaire
+  pk: 25
+  fields:
+    date_creation: 2021-05-26 12:25:43.131735+00:00
+    contenu: ceci est le corps du commentaire
+    auteur: 2
+    post: 48
+- model: communitymanager.commentaire
+  pk: 26
+  fields:
+    date_creation: 2021-05-26 20:21:25.096857+00:00
+    contenu: Je commente
+    auteur: 1
+    post: 55
+- model: communitymanager.commentaire
+  pk: 27
+  fields:
+    date_creation: 2021-05-26 20:21:47.102752+00:00
+    contenu: Et maintenant ca fonctionne mdr
+    auteur: 1
+    post: 55
+- model: communitymanager.commentaire
+  pk: 28
+  fields:
+    date_creation: 2021-05-26 20:22:43.853650+00:00
+    contenu: Et maintenant ca fonctionne mdr
+    auteur: 1
+    post: 55
+- model: communitymanager.commentaire
+  pk: 29
+  fields:
+    date_creation: 2021-05-26 20:23:23.684749+00:00
+    contenu: Bb peut commenter
+    auteur: 2
+    post: 55
+- model: communitymanager.commentaire
+  pk: 30
+  fields:
+    date_creation: 2021-05-26 20:34:44.842785+00:00
+    contenu: commentaire qui herite
+    auteur: 2
+    post: 55
+- model: communitymanager.commentaire
+  pk: 31
+  fields:
+    date_creation: 2021-05-26 21:01:51.028643+00:00
+    contenu: a.chauvi comments !!!
+    auteur: 1
+    post: 55
+- model: communitymanager.commentaire
+  pk: 32
+  fields:
+    date_creation: 2021-05-26 21:03:21.809692+00:00
+    contenu: a.chauvi comments !!!
+    auteur: 1
+    post: 55
+- model: communitymanager.commentaire
+  pk: 33
+  fields:
+    date_creation: 2021-05-26 21:24:32.068967+00:00
+    contenu: coucou
+    auteur: 1
+    post: 55
+- model: communitymanager.commentaire
+  pk: 34
+  fields:
+    date_creation: 2021-05-26 21:46:33.686721+00:00
+    contenu: commentaire 1
+    auteur: 2
+    post: 53
+- model: communitymanager.commentaire
+  pk: 35
+  fields:
+    date_creation: 2021-05-26 21:46:38.264003+00:00
+    contenu: commentaire 1
+    auteur: 2
+    post: 53
+- model: communitymanager.commentaire
+  pk: 36
+  fields:
+    date_creation: 2021-05-26 21:49:09.232979+00:00
+    contenu: 2eme commentaire
+    auteur: 2
+    post: 48
+- model: communitymanager.commentaire
+  pk: 37
+  fields:
+    date_creation: 2021-05-26 22:02:03.901977+00:00
+    contenu: Je vais passer en prio jaune
+    auteur: 2
+    post: 54
+- model: communitymanager.commentaire
+  pk: 38
+  fields:
+    date_creation: 2021-05-26 22:02:58.765756+00:00
+    contenu: en fait c'est l'auteur qui devait le faire !!
+    auteur: 1
+    post: 54
+- model: communitymanager.commentaire
+  pk: 39
+  fields:
+    date_creation: 2021-05-26 22:22:22.248023+00:00
+    contenu: Je suis le premier
+    auteur: 1
+    post: 56
